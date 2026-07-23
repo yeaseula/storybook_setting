@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 export interface SelectItemOption {
   value: string;
@@ -39,7 +40,7 @@ export function SelectDown({
       defaultValue={defaultValue}
       onValueChange={onValueChange}
     >
-      <SelectTrigger className="w-full max-w-48">
+      <SelectTrigger className={cn("w-full max-w-48", className)}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
