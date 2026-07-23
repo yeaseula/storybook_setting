@@ -12,7 +12,7 @@ const buttonVariantOptions: ButtonVariant[] = [
 ];
 
 const meta: Meta<typeof Dialog> = {
-  title: "Dialog",
+  title: "UI/Dialog",
   component: Dialog,
   tags: ["autodocs"],
   argTypes: {
