@@ -1,0 +1,41 @@
+[13:19:06.831] [INFO] storybook v10.5.3
+[13:19:09.010] [DEBUG] Getting package.json info for C:/Users/진이어스/storybook_setting/package.json...
+[13:19:09.022] [WARN] Could not resolve addon "@chromatic-com/storybook", skipping. Is it installed?
+[13:19:09.025] [WARN] Could not resolve addon "@storybook/addon-vitest", skipping. Is it installed?
+[13:19:09.027] [WARN] Could not resolve addon "@storybook/addon-a11y", skipping. Is it installed?
+[13:19:09.029] [WARN] Could not resolve addon "@storybook/addon-docs", skipping. Is it installed?
+[13:19:09.032] [WARN] Could not resolve addon "@storybook/addon-mcp", skipping. Is it installed?
+[13:19:09.117] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0002 (CriticalPresetLoadError): Storybook failed to load the following preset: @storybook/nextjs-vite/preset.
+
+Please check whether your setup is correct, the Storybook dependencies (and their peer dependencies) are installed correctly and there are no package version clashes.
+
+If you believe this is a bug, please open an issue on Github.
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from .\node_modules\vite-tsconfig-paths\dist\index.js
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:301:9)
+    at packageResolve (node:internal/modules/esm/resolve:768:81)
+    at moduleResolve (node:internal/modules/esm/resolve:859:18)
+    at defaultResolve (node:internal/modules/esm/resolve:992:11)
+    at nextResolve (node:internal/modules/esm/hooks:785:28)
+    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:269:30)
+    at handleMessage (node:internal/modules/esm/worker:251:24)
+    at Immediate.checkForMessages (node:internal/modules/esm/worker:193:28)
+    at process.processImmediate (node:internal/timers:504:21)
+
+More info: 
+[39m
+    at loadPreset (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/_node-chunks/chunk-WGUHTRPF.js:13569:13)
+    at async Promise.all (index 0)
+    at async loadPresets (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/_node-chunks/chunk-WGUHTRPF.js:13578:73)
+    at async getPresets (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/_node-chunks/chunk-WGUHTRPF.js:13609:23)
+    at async buildDevStandalone (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/core-server/index.js:11924:52)
+    at async withTelemetry (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/_node-chunks/chunk-YJQMIE5B.js:1785:12)
+    at async dev (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/bin/core.js:3850:3)
+    at async _Command.<anonymous> (file:///C:/Users/%EC%A7%84%EC%9D%B4%EC%96%B4%EC%8A%A4/storybook_setting/node_modules/storybook/dist/bin/core.js:3958:3)
+[13:19:09.120] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[13:19:09.121] [WARN] Could not resolve addon "@chromatic-com/storybook", skipping. Is it installed?
+[13:19:09.121] [WARN] Could not resolve addon "@storybook/addon-vitest", skipping. Is it installed?
+[13:19:09.121] [WARN] Could not resolve addon "@storybook/addon-a11y", skipping. Is it installed?
+[13:19:09.121] [WARN] Could not resolve addon "@storybook/addon-docs", skipping. Is it installed?
+[13:19:09.122] [WARN] Could not resolve addon "@storybook/addon-mcp", skipping. Is it installed?
