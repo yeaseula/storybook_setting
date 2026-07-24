@@ -10,9 +10,10 @@ import {
 
 /**
  *
- * @totalPage {number}
+ * @totalPage
  * @currentPage
- * @pageSize
+ * @pageSize 한 페이지에 보여 줄 게시물 개수 (기본값 설정 가능)
+ * @pageBlockSize 한 번에 노출할 패이지 버튼 개수 (기본값 5)
  */
 
 interface AppPaginationProps {
