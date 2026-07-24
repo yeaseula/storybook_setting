@@ -91,3 +91,45 @@ export const WithMockApiData: Story = {
     );
   },
 };
+
+export const WithUrlSearchParamSync: Story = {
+  render: () => {
+    // URL SearchParam 상태를 시뮬레이션
+    const [queryParams, setQueryParams] = useState({ page: "1" });
+    const currentPage = Number(queryParams.page) || 1;
+    const totalCount = 80;
+
+    // router.push(?page=N) 동작을 모방하는 핸들러
+    const handlePageChange = (newPage: number) => {
+      setQueryParams({ page: String(newPage) });
+    };
+
+    return (
+      <div className="flex flex-col gap-4 max-w-xl mx-auto p-4 border rounded-lg shadow-sm">
+        {/* 가상의 브라우저 주소창 미리보기 */}
+        <div className="flex items-center gap-2 bg-muted p-2 rounded text-xs font-mono">
+          <span className="text-muted-foreground">URL:</span>
+          <span className="text-blue-600 font-semibold">
+            https://example.com/posts?page={currentPage}
+          </span>
+        </div>
+
+        <div className="py-8 text-center border-y bg-background rounded">
+          <p className="text-sm font-medium">
+            현재 <span className="text-primary font-bold">{currentPage}</span>{" "}
+            페이지 데이터를 Server/Client API로 요청 중...
+          </p>
+        </div>
+
+        {/* 페이지네이션 */}
+        <AppPagination
+          currentPage={currentPage}
+          totalPage={totalCount}
+          pageSize={10}
+          pageBlockSize={5}
+          onPageChange={handlePageChange}
+        />
+      </div>
+    );
+  },
+};
