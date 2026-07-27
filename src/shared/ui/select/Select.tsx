@@ -3,7 +3,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -12,34 +11,36 @@ import { cn } from "@/lib/utils";
 
 export interface SelectItemOption {
   value: string;
-  name: string;
+  label: string;
   disabled?: boolean;
 }
 
 export interface SelectDownProps {
-  label?: string;
+  labelText?: string;
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string | null) => void;
   placeholder?: string;
-  selectLabel?: string;
+  groupLabel?: string;
+  selectedLabel?: string | undefined;
   selectItems: SelectItemOption[];
   className?: string; // 외부 스타일 커스텀 지원 (너비 조정 등)
 }
 
 export function SelectDown({
-  label,
+  labelText,
   value,
   defaultValue,
   onValueChange,
   placeholder = "선택해 주세요",
-  selectLabel,
   selectItems,
   className,
 }: SelectDownProps) {
+  console.log(value);
+
   return (
     <Field>
-      {label && <FieldLabel>{label}</FieldLabel>}
+      {labelText && <FieldLabel>{labelText}</FieldLabel>}
       <Select
         value={value}
         defaultValue={defaultValue}
@@ -50,8 +51,6 @@ export function SelectDown({
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            {selectLabel && <SelectLabel>{selectLabel}</SelectLabel>}
-
             {selectItems.map((item) => (
               <SelectItem
                 className="focus:bg-primary-light-trans"
@@ -59,7 +58,7 @@ export function SelectDown({
                 value={String(item.value)} // Radix UI value 규격에 맞게 string 변환
                 disabled={item.disabled}
               >
-                {item.name}
+                {item.label}
               </SelectItem>
             ))}
           </SelectGroup>

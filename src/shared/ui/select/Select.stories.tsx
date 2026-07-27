@@ -4,16 +4,16 @@ import { SelectDown, type SelectItemOption } from "./Select";
 
 // 검색 필터에 자주 쓰이는 샘플 옵션 데이터
 const MOCK_CATEGORIES: SelectItemOption[] = [
-  { value: "all", name: "전체 카테고리" },
-  { value: "frontend", name: "프론트엔드" },
-  { value: "backend", name: "백엔드" },
-  { value: "design", name: "디자인", disabled: true }, // 비활성화 옵션 테스트용
+  { value: "all", label: "전체 카테고리" },
+  { value: "frontend", label: "프론트엔드" },
+  { value: "backend", label: "백엔드" },
+  { value: "design", label: "디자인", disabled: true }, // 비활성화 옵션 테스트용
 ];
 
 const MOCK_SORT_OPTIONS: SelectItemOption[] = [
-  { value: "latest", name: "최신순" },
-  { value: "popular", name: "인기순" },
-  { value: "viewCount", name: "조회수순" },
+  { value: "latest", label: "최신순" },
+  { value: "popular", label: "인기순" },
+  { value: "viewCount", label: "조회수순" },
 ];
 
 const meta: Meta<typeof SelectDown> = {
@@ -21,7 +21,7 @@ const meta: Meta<typeof SelectDown> = {
   component: SelectDown,
   tags: ["autodocs"],
   argTypes: {
-    label: {
+    labelText: {
       control: "text",
       description: "select의 제목(라벨)",
     },
@@ -41,10 +41,10 @@ const meta: Meta<typeof SelectDown> = {
       control: "text",
       description: "선택하기 전 노출되는 기본 문구입니다.",
     },
-    selectLabel: {
-      control: "text",
-      description: "옵션 목록 상단에 노출되는 그룹 라벨입니다.",
-    },
+    // selectLabel: {
+    //   control: "text",
+    //   description: "옵션 목록 상단에 노출되는 그룹 라벨입니다.",
+    // },
   },
 };
 
@@ -62,7 +62,7 @@ export const Default: Story = {
 // 2. 그룹 라벨 포함
 export const WithLabel: Story = {
   args: {
-    selectLabel: "개발 직군",
+    //selectLabel: "개발 직군",
     placeholder: "직군 선택",
     selectItems: MOCK_CATEGORIES,
   },
@@ -80,12 +80,15 @@ export const WithDefaultValue: Story = {
 export const ControlledState: Story = {
   render: () => {
     const [selected, setSelected] = useState<string | null>("latest");
+    const selectedLabel = MOCK_SORT_OPTIONS.find(
+      (options) => options.value === selected,
+    )?.label;
 
     return (
       <div className="flex flex-col gap-3">
         <SelectDown
-          selectLabel="정렬 기준"
-          value={selected ?? undefined}
+          selectedLabel={selectedLabel}
+          value={selectedLabel ?? undefined}
           onValueChange={(val) => setSelected(val)}
           selectItems={MOCK_SORT_OPTIONS}
         />
@@ -105,13 +108,19 @@ export const FilterBarComposition: Story = {
   render: () => {
     const [category, setCategory] = useState<string | null>("all");
     const [sort, setSort] = useState<string | null>("latest");
+    const categoryLabel = MOCK_CATEGORIES.find(
+      (options) => options.value === category,
+    )?.label;
+    const sortLabel = MOCK_SORT_OPTIONS.find(
+      (options) => options.value === sort,
+    )?.label;
 
     return (
       <div className="flex items-center gap-2 rounded-lg border p-4 bg-background shadow-sm">
         {/* 카테고리 필터 */}
         <SelectDown
           placeholder="카테고리"
-          value={category ?? undefined}
+          value={categoryLabel ?? undefined}
           onValueChange={setCategory}
           selectItems={MOCK_CATEGORIES}
         />
@@ -119,7 +128,7 @@ export const FilterBarComposition: Story = {
         {/* 정렬 필터 */}
         <SelectDown
           placeholder="정렬 기준"
-          value={sort ?? undefined}
+          value={sortLabel ?? undefined}
           onValueChange={setSort}
           selectItems={MOCK_SORT_OPTIONS}
         />
