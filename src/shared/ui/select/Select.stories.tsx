@@ -47,7 +47,6 @@ const meta: Meta<typeof SelectDown> = {
 export default meta;
 type Story = StoryObj<typeof SelectDown>;
 
-// 1. 기본형
 export const Default: Story = {
   args: {
     placeholder: "카테고리 선택",
@@ -55,16 +54,6 @@ export const Default: Story = {
   },
 };
 
-// 2. 그룹 라벨 포함
-export const WithLabel: Story = {
-  args: {
-    //selectLabel: "개발 직군",
-    placeholder: "직군 선택",
-    selectItems: MOCK_CATEGORIES,
-  },
-};
-
-// 3. 기본값(defaultValue) 설정
 export const WithDefaultValue: Story = {
   args: {
     defaultValue: "frontend",
@@ -72,9 +61,8 @@ export const WithDefaultValue: Story = {
   },
 };
 
-// 4. useState 연동 테스트 (인터랙션 확인용)
 export const ControlledState: Story = {
-  render: () => {
+  render: (args) => {
     const [selected, setSelected] = useState<string | null>("latest");
     const selectedLabel = MOCK_SORT_OPTIONS.find(
       (options) => options.value === selected,
@@ -83,6 +71,7 @@ export const ControlledState: Story = {
     return (
       <div className="flex flex-col gap-3">
         <SelectDown
+          {...args}
           selectedLabel={selectedLabel}
           value={selectedLabel ?? undefined}
           onValueChange={(val) => setSelected(val)}

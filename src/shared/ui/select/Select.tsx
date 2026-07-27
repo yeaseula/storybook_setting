@@ -36,8 +36,6 @@ export function SelectDown({
   selectItems,
   className,
 }: SelectDownProps) {
-  console.log(value);
-
   return (
     <Field>
       {labelText && <FieldLabel>{labelText}</FieldLabel>}
