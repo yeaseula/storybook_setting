@@ -21,6 +21,22 @@ const meta: Meta<typeof SelectDown> = {
   component: SelectDown,
   tags: ["autodocs"],
   argTypes: {
+    label: {
+      control: "text",
+      description: "select의 제목(라벨)",
+    },
+    value: {
+      control: "text",
+      description: "현재 선택된 값 (Controlled)",
+    },
+    defaultValue: {
+      control: "text",
+      description: "기본 선택 값",
+    },
+    onValueChange: {
+      action: "valueChanged",
+      description: "옵션 선택 시 호출되는 콜백 함수입니다.",
+    },
     placeholder: {
       control: "text",
       description: "선택하기 전 노출되는 기본 문구입니다.",
@@ -28,14 +44,6 @@ const meta: Meta<typeof SelectDown> = {
     selectLabel: {
       control: "text",
       description: "옵션 목록 상단에 노출되는 그룹 라벨입니다.",
-    },
-    value: {
-      control: "text",
-      description: "현재 선택된 값 (Controlled)",
-    },
-    onValueChange: {
-      action: "valueChanged",
-      description: "옵션 선택 시 호출되는 콜백 함수입니다.",
     },
   },
 };
