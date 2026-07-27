@@ -19,9 +19,16 @@ export default meta;
 type Story = StoryObj<typeof InputField>;
 
 export const Default: Story = {
-  args: {
-    label: "이메일",
-    placeholder: "example@email.com",
+  render: () => {
+    return (
+      <div className="flex flex-col gap-10">
+        <InputField
+          label="아이디"
+          placeholder="영소문자/숫자/특수문자 4~10자리"
+        />
+        <InputField label="이메일" placeholder="example@email.com" disabled />
+      </div>
+    );
   },
 };
 

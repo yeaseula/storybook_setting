@@ -100,10 +100,6 @@ export const FilterBarComposition: Story = {
 
     return (
       <div className="flex items-center gap-2 rounded-lg border p-4 bg-background shadow-sm">
-        <span className="text-sm font-semibold text-muted-foreground mr-2">
-          검색 필터:
-        </span>
-
         {/* 카테고리 필터 */}
         <SelectDown
           placeholder="카테고리"

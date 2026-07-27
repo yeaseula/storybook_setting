@@ -7,8 +7,6 @@ type ButtonVariant = NonNullable<ButtonProps["variant"]>;
 const buttonVariantOptions: ButtonVariant[] = [
   "primary-fill",
   "primary-outline",
-  "secondary-fill",
-  "secondary-outline",
 ];
 
 const meta: Meta<typeof Dialog> = {
@@ -103,7 +101,7 @@ export const WithConfirmButton: Story = {
     cancelText: "취소",
     cancelVariant: "primary-outline",
     confirmText: "저장하기",
-    confirmVariant: "secondary-fill",
+    confirmVariant: "primary-fill",
   },
 };
 
@@ -121,7 +119,7 @@ export const WithFullButton: Story = {
     cancelText: "취소",
     cancelVariant: "primary-outline",
     confirmText: "저장하기",
-    confirmVariant: "secondary-fill",
+    confirmVariant: "primary-fill",
     closeable: true,
   },
 };

@@ -36,7 +36,7 @@ export function DatePicker({ label, placeholder }: DatePickerProps) {
             <Button
               variant="outline"
               id="date-picker-simple"
-              className="justify-start font-normal"
+              className="justify-start font-normal hover:bg-primary-light-trans"
             >
               {date ? (
                 format(date, "PPP")

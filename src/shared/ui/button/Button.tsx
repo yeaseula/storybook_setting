@@ -3,16 +3,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/shared/lib/utils";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none disabled:opacity-50",
+  "inline-flex items-center justify-center rounded-md font-medium transition focus:outline-none disabled:pointer-events-none",
   {
     variants: {
       variant: {
-        "primary-fill": "bg-emerald-600 text-white hover:bg-emerald-700",
+        "primary-fill":
+          "bg-primary text-white hover:bg-primary-dark disabled:bg-gray-700/30",
         "primary-outline":
-          "border border-emerald-600 text-emerald-600 hover:bg-emerald-50",
-        "secondary-fill": "bg-violet-600 text-white hover:bg-violet-700",
-        "secondary-outline":
-          "border border-violet-600 text-violet-600 hover:bg-violet-50",
+          "border border-primary text-primary hover:bg-primary-light-trans disabled:border-gray-700/30 disabled:text-gray-700/30",
       },
       size: {
         sm: "py-1 px-2 text-xs",

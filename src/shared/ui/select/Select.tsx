@@ -54,6 +54,7 @@ export function SelectDown({
 
             {selectItems.map((item) => (
               <SelectItem
+                className="focus:bg-primary-light-trans"
                 key={item.value}
                 value={String(item.value)} // Radix UI value 규격에 맞게 string 변환
                 disabled={item.disabled}

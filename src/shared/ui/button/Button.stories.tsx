@@ -8,12 +8,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: "select",
-      options: [
-        "primary-fill",
-        "primary-outline",
-        "secondary-fill",
-        "secondary-outline",
-      ],
+      options: ["primary-fill", "primary-outline"],
       description: "버튼의 시각적 스타일을 지정합니다.",
       table: {
         defaultValue: { summary: "primary-fill" },
@@ -56,19 +51,18 @@ export const PrimaryOutline: Story = {
   },
 };
 
-// Secondary-fill
-export const SecondaryFill: Story = {
-  args: {
-    children: "서브 버튼",
-    variant: "secondary-fill",
-  },
-};
-
-// Secondary-outline
-export const SecondaryOutline: Story = {
-  args: {
-    children: "서브 아웃라인",
-    variant: "secondary-outline",
+export const Disabled: Story = {
+  render: () => {
+    return (
+      <div className="flex gap-2">
+        <Button variant="primary-fill" disabled>
+          비활성화
+        </Button>
+        <Button variant="primary-outline" disabled>
+          비활성화
+        </Button>
+      </div>
+    );
   },
 };
 

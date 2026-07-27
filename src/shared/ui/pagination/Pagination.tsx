@@ -7,6 +7,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { cn } from "@/shared/lib/utils";
 
 /**
  *
@@ -41,12 +42,17 @@ export function AppPagination({
   );
   const hasPreviousBlock = startPage > 1;
   const hasNextBlock = endPage < totalPages;
+  const PaginationStyle =
+    "rounded-full border-none hover:bg-primary-light-trans";
+  const ActiveStyle = "border-primary-dark bg-primary-dark text-white";
+
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
           {/* 이전 버튼 */}
           <PaginationPrevious
+            text="이전"
             href="#"
             onClick={(e) => {
               e.preventDefault();
@@ -65,6 +71,7 @@ export function AppPagination({
             <PaginationItem>
               <PaginationLink
                 href="#"
+                className={PaginationStyle}
                 onClick={(e) => {
                   e.preventDefault();
                   onPageChange(1);
@@ -82,12 +89,15 @@ export function AppPagination({
           <PaginationItem key={page}>
             <PaginationLink
               href="#"
+              className={cn(
+                PaginationStyle,
+                page === currentPage && ActiveStyle,
+              )}
               isActive={page === currentPage}
               onClick={(e) => {
                 e.preventDefault();
                 onPageChange(page);
               }}
-              className="cursor-pointer"
             >
               {page}
             </PaginationLink>
@@ -101,6 +111,7 @@ export function AppPagination({
             <PaginationItem>
               <PaginationLink
                 href="#"
+                className={PaginationStyle}
                 onClick={(e) => {
                   e.preventDefault();
                   onPageChange(totalPages);
@@ -115,6 +126,7 @@ export function AppPagination({
         {/* 다음 버튼 */}
         <PaginationItem>
           <PaginationNext
+            text="다음"
             href="#"
             onClick={(e) => {
               e.preventDefault();

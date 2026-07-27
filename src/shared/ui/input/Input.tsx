@@ -47,7 +47,9 @@ export const InputField = ({
             aria-invalid={isError}
             aria-describedby={describedBy}
             className={cn(
+              "focus-visible:ring-primary-light",
               isError && "border-destructive focus-visible:ring-destructive",
+              props.disabled && "bg-gray-200",
               className,
             )}
             {...props}
@@ -57,14 +59,14 @@ export const InputField = ({
           {isError ? (
             <p
               id={errorId}
-              className="text-xs font-medium text-destructive mt-1"
+              className="text-xs font-medium text-destructive mt-2"
             >
               {errorMessage}
             </p>
           ) : helperText ? (
             <p
               id={descriptionId}
-              className="text-xs text-muted-foreground mt-1"
+              className="text-xs text-muted-foreground mt-2"
             >
               {helperText}
             </p>
