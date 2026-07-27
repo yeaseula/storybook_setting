@@ -23,15 +23,15 @@ const meta: Meta<typeof SelectDown> = {
   argTypes: {
     labelText: {
       control: "text",
-      description: "select의 제목(라벨)",
+      description: "select의 제목(라벨) ex)카테고리, 정렬값, 시간 등",
     },
     value: {
       control: "text",
-      description: "현재 선택된 값 (Controlled)",
+      description: "현재 선택한 값으로, 유저가 자유롭게 변경하는 값입니다.",
     },
     defaultValue: {
       control: "text",
-      description: "기본 선택 값",
+      description: "기본 선택 값으로, 진입 시 자동으로 선택되어있는 값입니다.",
     },
     onValueChange: {
       action: "valueChanged",
@@ -41,10 +41,6 @@ const meta: Meta<typeof SelectDown> = {
       control: "text",
       description: "선택하기 전 노출되는 기본 문구입니다.",
     },
-    // selectLabel: {
-    //   control: "text",
-    //   description: "옵션 목록 상단에 노출되는 그룹 라벨입니다.",
-    // },
   },
 };
 
