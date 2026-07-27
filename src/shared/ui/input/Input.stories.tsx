@@ -43,7 +43,7 @@ export const FormExample: Story = {
         placeholder="아이디를 입력하세요"
         errorMessage="8~16자리를 입력해주세요."
         button={
-          <Button variant="primary-fill" className="h-10">
+          <Button variant="primary-fill" className="h-9">
             중복확인
           </Button>
         }

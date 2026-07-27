@@ -7,15 +7,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Field, FieldLabel } from "@/components/ui/field";
 import { cn } from "@/lib/utils";
 
 export interface SelectItemOption {
   value: string;
   name: string;
-  disabled?: boolean; // 비활성화 옵션도 미리 확장성을 대비해 추가해 두면 좋습니다.
+  disabled?: boolean;
 }
 
 export interface SelectDownProps {
+  label?: string;
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string | null) => void;
@@ -26,6 +28,7 @@ export interface SelectDownProps {
 }
 
 export function SelectDown({
+  label,
   value,
   defaultValue,
   onValueChange,
@@ -35,29 +38,32 @@ export function SelectDown({
   className,
 }: SelectDownProps) {
   return (
-    <Select
-      value={value}
-      defaultValue={defaultValue}
-      onValueChange={onValueChange}
-    >
-      <SelectTrigger className={cn("w-full max-w-48", className)}>
-        <SelectValue placeholder={placeholder} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          {selectLabel && <SelectLabel>{selectLabel}</SelectLabel>}
+    <Field>
+      {label && <FieldLabel>{label}</FieldLabel>}
+      <Select
+        value={value}
+        defaultValue={defaultValue}
+        onValueChange={onValueChange}
+      >
+        <SelectTrigger className={cn("w-full", className)}>
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            {selectLabel && <SelectLabel>{selectLabel}</SelectLabel>}
 
-          {selectItems.map((item) => (
-            <SelectItem
-              key={item.value}
-              value={String(item.value)} // Radix UI value 규격에 맞게 string 변환
-              disabled={item.disabled}
-            >
-              {item.name}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+            {selectItems.map((item) => (
+              <SelectItem
+                key={item.value}
+                value={String(item.value)} // Radix UI value 규격에 맞게 string 변환
+                disabled={item.disabled}
+              >
+                {item.name}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </Field>
   );
 }
